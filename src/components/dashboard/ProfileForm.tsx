@@ -57,7 +57,7 @@ export default function ProfileForm({ profile, userId }: ProfileFormProps) {
 
     setSaving(false)
     if (dbError) {
-      setError('Error al guardar. Intenta de nuevo.')
+      setError(dbError?.message || dbError?.details || JSON.stringify(dbError) || 'Error desconocido')
       return
     }
     setSuccess(true)
