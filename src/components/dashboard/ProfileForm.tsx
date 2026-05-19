@@ -80,7 +80,7 @@ export default function ProfileForm({ profile, userId }: ProfileFormProps) {
           value={niche}
           onChange={e => setNiche(e.target.value)}
           placeholder="Ej: comida latina, fitness, belleza, finanzas personales..."
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       </div>
 
@@ -97,7 +97,7 @@ export default function ProfileForm({ profile, userId }: ProfileFormProps) {
           value={brandName}
           onChange={e => setBrandName(e.target.value)}
           placeholder="Ej: @latinalifestyle, Chef Ricardo..."
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       </div>
 
@@ -144,7 +144,7 @@ export default function ProfileForm({ profile, userId }: ProfileFormProps) {
         <select
           value={language}
           onChange={e => setLanguage(e.target.value)}
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           {LANGUAGES.map(l => (
             <option key={l.value} value={l.value}>{l.label}</option>
