@@ -60,8 +60,14 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ output, creditsUsed: profile.credits_used + 1 })
 
-  } catch (error) {
-    console.error('Error generando:', error)
-    return NextResponse.json({ error: 'Error interno' }, { status: 500 })
+  } catch (error: any) {
+    console.error('Error completo:', {
+      message: error?.message,
+      status: error?.status,
+      error: error?.error,
+    })
+    return NextResponse.json({
+      error: error?.message || 'Error interno del servidor'
+    }, { status: 500 })
   }
 }
