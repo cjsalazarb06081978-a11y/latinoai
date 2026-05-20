@@ -46,7 +46,8 @@ etiqueta: 85-100="Listo para publicar", 65-84="Publicar con mejoras", 0-64="Nece
     })
 
     const raw = message.content[0].type === 'text' ? message.content[0].text : ''
-    const result = JSON.parse(raw)
+    const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+    const result = JSON.parse(cleaned)
 
     try {
       await supabase.from('content_scores').insert({
