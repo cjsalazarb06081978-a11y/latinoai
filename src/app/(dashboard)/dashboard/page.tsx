@@ -21,8 +21,9 @@ export default async function DashboardPage() {
           {profile?.plan === 'pro' && (
             <span className="bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full">Pro ✓</span>
           )}
-          <a href="/perfil" className="text-sm text-gray-500 hover:text-gray-800">Perfil</a>
+          <a href="/analizar" className="text-sm text-gray-500 hover:text-gray-800">Analizar</a>
           <a href="/historial" className="text-sm text-gray-500 hover:text-gray-800">Historial</a>
+          <a href="/perfil" className="text-sm text-gray-500 hover:text-gray-800">Perfil</a>
         </div>
       </nav>
       <div className="max-w-3xl mx-auto py-8 px-4">
