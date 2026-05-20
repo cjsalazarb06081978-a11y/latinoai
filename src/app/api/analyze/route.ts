@@ -48,18 +48,20 @@ etiqueta: 85-100="Listo para publicar", 65-84="Publicar con mejoras", 0-64="Nece
     const raw = message.content[0].type === 'text' ? message.content[0].text : ''
     const result = JSON.parse(raw)
 
-    await supabase.from('content_scores').insert({
-      user_id: user.id,
-      content,
-      platform: platform || 'instagram',
-      score_hook: result.dimensiones.hook.score,
-      score_autenticidad: result.dimensiones.autenticidad.score,
-      score_claridad: result.dimensiones.claridad.score,
-      score_cta: result.dimensiones.cta.score,
-      score_viralidad: result.dimensiones.viralidad.score,
-      score_total: result.score_total,
-      sugerencias: JSON.stringify(result),
-    }).throwOnError().catch(() => {})
+    try {
+      await supabase.from('content_scores').insert({
+        user_id: user.id,
+        content,
+        platform: platform || 'instagram',
+        score_hook: result.dimensiones.hook.score,
+        score_autenticidad: result.dimensiones.autenticidad.score,
+        score_claridad: result.dimensiones.claridad.score,
+        score_cta: result.dimensiones.cta.score,
+        score_viralidad: result.dimensiones.viralidad.score,
+        score_total: result.score_total,
+        sugerencias: JSON.stringify(result),
+      }).throwOnError()
+    } catch {}
 
     return NextResponse.json(result)
   } catch (error: any) {
